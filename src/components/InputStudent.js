@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+
 class InputStudent extends Component{
     state={
         fullname: '',
@@ -21,21 +22,22 @@ class InputStudent extends Component{
             fullname: ''
         })
         }else{
-            alert('Please enter a valid student')
+            alert ('please enter a valid Info!')
         }    
     }
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className = 'form-container'>
                 <input 
+                    className='input-text'
                     type='text' 
                     placeholder='Add student..' 
                     name='fullname'
                     value={this.state.fullname} 
                     onChange = {this.onChange}
                 />
-                <button>Submit</button>
+                <button className='input-submit'>Submit</button>
             </form>
         )
     }

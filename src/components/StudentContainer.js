@@ -12,7 +12,7 @@ class StudentContainer extends React.Component{
         ]
     }
     
-    handleChange = (matric) => { 
+    handleChange = matric => { 
         this.setState(prevState => ({
             students: prevState.students.map(student => {
                 if(student.matric === matric){
@@ -50,11 +50,13 @@ class StudentContainer extends React.Component{
     render(){
         
         return (
-            <>
+            <div className='container'>
+                <div className='inner'>
                 <Header/>
                 <InputStudent addStudentProps={this.addStudent}/>
                 <StudentList students={this.state.students} handleChangeProps={this.handleChange} delStudentProps={this.delStudent}/>
-            </>
+                </div>
+            </div>
         )
     }
 }

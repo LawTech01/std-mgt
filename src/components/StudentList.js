@@ -8,8 +8,7 @@ class StudentList extends React.Component{
             <ul>
                 {this.props.students.map(student => (
                    <Student 
-                        key={student.matric} 
-                        student={student} 
+                        key={student.matric} student={student} 
                         handleChangeProps={this.props.handleChangeProps}
                         delStudentProps={this.props.delStudentProps}
                     />
