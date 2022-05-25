@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 
+
 class InputStudent extends Component{
     state={
         fullname: '',
@@ -26,6 +27,7 @@ class InputStudent extends Component{
         }    
     }
 
+
     render(){
         return(
             <form onSubmit={this.handleSubmit} className = 'form-container'>
@@ -37,6 +39,7 @@ class InputStudent extends Component{
                     value={this.state.fullname} 
                     onChange = {this.onChange}
                 />
+                
                 <button className='input-submit'>Submit</button>
             </form>
         )

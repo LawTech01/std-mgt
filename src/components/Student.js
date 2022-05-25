@@ -1,16 +1,27 @@
 import React from 'react'
 
+
 class Student extends React.Component{
   render(){
+    const completedstyle = {
+      fontStyle: 'italic',
+      color: '#59595e',
+      opacity: 0.4,
+      textDecoration: 'line-through'
+    }
+    const {graduated, matric, fullname} = this.props.student
     return (
-      <li>
+      <li className= 'check'>
           <input 
+              className='ckbox'
               type='checkbox' 
-              checked={this.props.student.graduated} 
-              onChange={() => this.props.handleChangeProps(this.props.student.matric)}
+              checked={graduated} 
+              onChange={() => this.props.handleChangeProps(matric)}
           />
-          {this.props.student.fullname}
-          <button onClick={() => this.props.delStudentProps(this.props.student.matric)}>Delete</button>
+          <span style={graduated ? completedstyle : null}>
+          {fullname}
+          </span>
+          <button className='bt' onClick={() => this.props.delStudentProps(matric)}>Delete</button>
       </li>
     )
   }

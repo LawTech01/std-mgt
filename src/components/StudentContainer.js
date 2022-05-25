@@ -3,6 +3,8 @@ import Header from './Header'
 import InputStudent from './InputStudent'
 import StudentList from './StudentList'
 import {v4 as uuidv4} from 'uuid'
+import FlashMessage from 'react-flash-message'
+
 
 class StudentContainer extends React.Component{
     state = {
@@ -50,13 +52,20 @@ class StudentContainer extends React.Component{
     render(){
         
         return (
+          <>
             <div className='container'>
                 <div className='inner'>
                 <Header/>
                 <InputStudent addStudentProps={this.addStudent}/>
                 <StudentList students={this.state.students} handleChangeProps={this.handleChange} delStudentProps={this.delStudent}/>
                 </div>
+                <FlashMessage duration  = {5000}>
+                    <strong> Hello, I will hide in 5 seconds!</strong>
+                </FlashMessage>
+                
             </div>
+            
+          </>
         )
     }
 }
