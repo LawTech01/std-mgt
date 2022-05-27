@@ -11,6 +11,7 @@ class StudentList extends React.Component{
                         key={student.matric} student={student} 
                         handleChangeProps={this.props.handleChangeProps}
                         delStudentProps={this.props.delStudentProps}
+                        setUpdate={this.props.setUpdate}
                     />
                 ) )}
             </ul>

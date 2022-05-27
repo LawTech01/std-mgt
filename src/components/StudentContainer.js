@@ -49,6 +49,17 @@ class StudentContainer extends React.Component{
         })
     }
 
+    setUpdate = (updatedName, matric) => {
+        this.setState({
+            students: this.state.students.map(student => {
+                if(student.matric===matric){
+                    student.fullname = updatedName
+                }
+                return student
+            })
+        })
+    }
+
     render(){
         
         return (
@@ -57,7 +68,11 @@ class StudentContainer extends React.Component{
                 <div className='inner'>
                 <Header/>
                 <InputStudent addStudentProps={this.addStudent}/>
-                <StudentList students={this.state.students} handleChangeProps={this.handleChange} delStudentProps={this.delStudent}/>
+                <StudentList students={this.state.students} 
+                             handleChangeProps={this.handleChange}   
+                             delStudentProps={this.delStudent}
+                             setUpdate={this.setUpdate}             
+                />
                 </div>
                 <FlashMessage duration  = {5000}>
                     <strong> Hello, I will hide in 5 seconds!</strong>

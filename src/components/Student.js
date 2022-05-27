@@ -12,6 +12,14 @@ class Student extends React.Component{
     })
   }
 
+  handleUpdatedDone = e => {
+    if(e.key === 'Enter'){
+      this.setState({
+        editing: false,
+      })
+    }
+  }
+
   render(){
     const completedstyle = {
       fontStyle: 'italic',
@@ -44,7 +52,16 @@ class Student extends React.Component{
           </span>
           <button className='bt' onClick={() => this.props.delStudentProps(matric)}>Delete</button>
         </div>
-        <input type= 'text' className={styles.textInput} style = {editMode} />
+        <input
+              type= 'text' 
+              className={styles.textInput} 
+              style = {editMode}
+              value = {fullname}
+              onChange = { e =>
+                this.props.setUpdate(e.target.value, matric)
+              }
+              onKeyDown = {this.handleUpdatedDone}
+            />
       </li>
     )
   }
