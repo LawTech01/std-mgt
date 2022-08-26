@@ -60,6 +60,24 @@ class StudentContainer extends React.Component{
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.students !== this.state.students){
+            const temp = JSON.stringify(this.state.students)
+                localStorage.setItem('students', temp)
+        }
+
+    }
+    componentDidMount(){
+        const temp = localStorage.getItem('students')
+        const loadedStudents = JSON.parse(temp)
+        if(loadedStudents){
+            this.setState({
+                students: loadedStudents
+            })
+        }
+    }
+
+
     render(){
         
         return (
